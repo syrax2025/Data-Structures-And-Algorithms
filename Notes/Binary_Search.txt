@@ -1,1 +1,52 @@
-This is Binary Search.
+Binary Search Is an algorithm which divides the search space into two parts after every comparision.
+
+If the condition is unsatisfied then the half in which the target cannot lie is eleminated and the search continues until it is sucessful.If the search ends with an empty  half, the condition cannot be fulfilled and target is not found.
+
+Basic Binary Search
+
+1. Find the middle element.
+2. If target is greater than middle element then search in right half of array.
+3. If target is less than middle element then search in left half of array.
+4. if target equals middle element then return it's position.
+
+
+Order Agnostic Binary Search(Descending Order Array) will be vice versa of it.
+
+Time Complexity 
+Best Case : O(1)
+Wors Case : O(log N)
+
+
+*** Use this formula while finding the middle element : 
+    mid = start + (end - start)/2 ((start + mid)/2)
+    This will make sure that our mid value don't overflow the integer value.
+
+3 Parts of a sucessful Binary Search
+
+1. Pre-processing - Sort if collection is unsorted.
+2. Binary Search - Using loop or recursion to divide the search space in half after each comparison.
+3. Post-processing - Determine the viable candiates in the remaining space.
+
+
+There are three templates of Binary Search 
+
+1. Most Basic And Strandard Binary Search
+
+int binarySearch(int[] nums, int target){
+  if(nums == null || nums.length == 0)
+    return -1;
+
+  int left = 0, right = nums.length - 1;
+  while(left <= right){
+    // Prevent (left + right) overflow
+    int mid = left + (right - left) / 2;
+    if(nums[mid] == target){ return mid; }
+    else if(nums[mid] < target) { left = mid + 1; }
+    else { right = mid - 1; }
+  }
+
+  // End Condition: left > right
+  return -1;
+}
+
+
