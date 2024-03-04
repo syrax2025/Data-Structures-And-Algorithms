@@ -123,4 +123,4 @@ Search Space will be 3 elements.
 
 After the termination there will be two elements remains.
 
-
+And we have to check these elements and if answer exsists and return it.
